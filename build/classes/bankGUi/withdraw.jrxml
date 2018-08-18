@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6f563b10-8fd3-4fb6-8120-e0a121493851">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="79"/>
+	<parameter name="p1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     withdraw.`withdraw_id` AS withdraw_withdraw_id,
+     withdraw.`account_no` AS withdraw_account_no,
+     withdraw.`withdraw_amount` AS withdraw_withdraw_amount,
+     withdraw.`check_no` AS withdraw_check_no,
+     withdraw.`date` AS withdraw_date
+FROM
+     `withdraw` withdraw
+WHERE
+     withdraw_id = $P{p1}]]>
+	</queryString>
+	<field name="withdraw_withdraw_id" class="java.lang.Integer"/>
+	<field name="withdraw_account_no" class="java.lang.Integer"/>
+	<field name="withdraw_withdraw_amount" class="java.lang.Integer"/>
+	<field name="withdraw_check_no" class="java.lang.String"/>
+	<field name="withdraw_date" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement x="243" y="0" width="118" height="30" uuid="1c5ceb08-4323-4d9f-b2db-3a5418c0d070"/>
+				<textElement>
+					<font fontName="Agency FB" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bank Asia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="30" width="184" height="20" uuid="7dbb4e8b-2dd2-4f91-bb27-35f80c1b9d8b"/>
+				<text><![CDATA[Rangs Tower,new paltan,Dhaka-1000]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="50" width="128" height="20" uuid="5e5659f1-0d7d-445b-ac2c-5eb9decb38f3"/>
+				<text><![CDATA[Bankasia456@gmail.com]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="3" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="150" splitType="Stretch">
+			<staticText>
+				<reportElement x="45" y="52" width="157" height="20" uuid="3df4b3e2-917c-4f9a-a1af-d60ea2261d07"/>
+				<textElement>
+					<font fontName="Monospaced" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Transaction id:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="0" width="198" height="20" uuid="5dae2d9c-dbc2-4060-bd2e-425f5f9c3593"/>
+				<textElement>
+					<font fontName="Monospaced" size="13" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Custormer Account no:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="108" width="157" height="20" uuid="f70fb604-3d5a-4423-9f6f-422e385cc983"/>
+				<textElement>
+					<font fontName="Monospaced" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Withhdraw amount:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="371" y="0" width="100" height="20" uuid="bac33817-f099-4f54-9433-17ff8b82163d"/>
+				<textFieldExpression><![CDATA[$F{withdraw_account_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="108" width="100" height="20" uuid="981e681c-ace6-4ef8-9b01-4ddc27eb9171"/>
+				<textFieldExpression><![CDATA[$F{withdraw_withdraw_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="52" width="100" height="20" uuid="2ec04c35-61dc-4324-a424-f887bf8c9a96"/>
+				<textFieldExpression><![CDATA[$F{withdraw_withdraw_id}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="32" y="38" width="461" height="1" uuid="039e72a6-f89c-4478-abe5-01a6bb53c2dc"/>
+			</line>
+			<line>
+				<reportElement x="45" y="90" width="448" height="1" uuid="8c852847-286f-4208-8207-43aac7b837d4"/>
+			</line>
+			<line>
+				<reportElement x="32" y="139" width="461" height="1" uuid="3d710b7b-a077-4d53-b0c3-36df350e10d8"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="84" splitType="Stretch">
+			<line>
+				<reportElement x="32" y="42" width="478" height="1" uuid="9447fab1-b8cd-49e0-9d96-37ea9d0855c5"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
